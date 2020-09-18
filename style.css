@@ -10,6 +10,7 @@
   --sub-header-color: #685879;
   --text-color: #000000;
   --white: #fff;
+  --light-gray: #eaeaea;
   --content-width: 1080px;
   --card-radius: 20px;
   --font-family: 'Roboto', sans-serif;
@@ -105,7 +106,7 @@ span#navmenu a:first-child {
 }
 
 span#username {
-  border: 1px solid #eaeaea;
+  border: 1px solid var(--light-gray);
   box-sizing: border-box;
   border-radius: 24px;
   padding: 8px 20px;
@@ -144,29 +145,44 @@ section.hero-section .wrapper {
 
 a {
   text-decoration: none;
+  color: var(--primary);
 }
 
-a.button {
+.button {
   text-decoration: none;
   font-weight: 700;
   padding: 10px 30px;
   border-radius: 24px;
+  transition: 0.3s ease;
 }
 
-a.button.main {
+.button.main {
   color: var(--white);
   background: var(--primary);
 }
 
-a.button.secondary {
+.button.main:hover,
+.button.secondary:hover {
+  color: var(--secondary);
+  background: var(--light-gray);
+  border-color: transparent;
+}
+
+.button.secondary {
   color: var(--primary);
   background: var(--white);
   border: 1px solid var(--primary);
 }
 
-a.button.main-light {
+.button.main-light {
   color: var(--primary);
   background: var(--white);
+}
+
+.button.main-light:hover {
+  color: var(--white);
+  background: var(--primary);
+  filter: brightness(85%);
 }
 
 .subheader {
@@ -209,14 +225,16 @@ a.button.main-light {
 }
 
 .content-column-text {
+  width: 50%;
   padding: 50px 0;
 }
 
 .content-column-image {
+  width: 50%;
   padding: 50px;
 }
 
-.feature-card {
+.card {
   margin: 20px;
   padding: 20px;
   background: var(--white);
@@ -226,26 +244,24 @@ a.button.main-light {
   text-align: center;
 }
 
-.feature-card:first-child {
+.card:first-child {
   margin-left: 0;
 }
 
-.feature-card:last-child {
+.card:last-child {
   margin-right: 0;
 }
 
-.feature-card img {
+.card.feature-card img {
   margin-bottom: 10px;
 }
 
 .feature-card-stripe-pattern {
-  position: absolute;
   left: 0;
   top: 0;
 }
 
 .feature-card-grid-pattern {
-  position: absolute;
   right: 0;
   top: 50%;
 }
@@ -257,15 +273,27 @@ ul.list-check li {
   margin: 0;
 }
 
+ul.list-circle {
+  text-align: left;
+  padding: 20px 0;
+}
+
+ul.list-circle li {
+  list-style-type: circle;
+  color: var(--primary);
+  font-size: 25px;
+}
+
+ul.list-circle li span {
+  color: var(--text-color);
+}
+
 section#why-choose-us-section {
   padding: 2em 0;
 }
 
-section#why-choose-us-section .content-column-image {
-  margin-right: -180px;
-}
-
-.content-column-text + .content-column-image {
+.content-column-text + .content-column-image,
+.content-column-image + .content-column-text {
     margin-left: 60px;
 }
 
@@ -315,6 +343,108 @@ section#why-choose-us-section .content-column-image {
   text-anchor: middle;
 }
 
+.text-align-center {
+  text-align: center;
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 15px 0;
+  background: var(--light-gray);  
+  border-radius: 50px;
+  align-items: center;
+}
+
+.toggle-button .selected,
+.toggle-button .unselected {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.toggle-button .selected {
+  background: var(--white);
+  padding: 5px 10px;
+  border: 2px solid var(--accent);
+  border-radius: 50px;
+}
+
+.toggle-button .unselected {
+  padding: 0 15px;
+}
+
+.plan-price {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.plan-price strong {
+  font-size: 60px;
+}
+
+.card.plan-card {
+  padding: 30px 0;
+  width: 30%;
+}
+
+.card.plan-card-main {
+  padding: 30px 0;
+  width: 40%;
+}
+
+.side-decor {
+  position: absolute;
+  z-index: -1;
+}
+
+.pricing-plan-blob-1 {
+  left: -20%;
+  top: -10px;
+}
+
+.pricing-plan-blob-2 {
+  right: -3%;
+  bottom: 10px;
+}
+
+/* Contact Form */
+form.form-contact input:not([type~=submit]), 
+form.form-contact textarea {
+  padding: 10px 30px;
+  border: 2px solid var(--accent);
+  box-sizing: border-box;
+  border-radius: 50px;
+  width: 90%;
+  margin: 6px 0;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+form.form-contact textarea {
+  border-radius: 35px;
+  resize: none;
+}
+
+form.form-contact *::placeholder {
+  font-weight: 900;
+}
+
+form.form-contact input:focus,
+form.form-contact textarea:focus {
+  border-color: var(--secondary);
+}
+
+input.button.submit-form {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+
+
+
 /* Flex styles */
 .flex {
   display: -webkit-box;
@@ -341,7 +471,7 @@ section#why-choose-us-section .content-column-image {
   flex-wrap: wrap;
 }
 
-.align-item-center {
+.align-items-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
