@@ -138,7 +138,6 @@ section.hero-section .wrapper {
 }
 
 .hero-grid-pattern {
-  position: absolute;
   left: 0;
   top: 30%;
 }
@@ -213,7 +212,7 @@ a {
 }
 
 .content-section {
-  margin: 10em 0;
+  padding: 10em 0;
 }
 
 .highlighted-section {
@@ -440,6 +439,15 @@ input.button.submit-form {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.contact-us-grid-pattern {
+  right: 0;
+  bottom: 0;
+}
+
+
+
+
 
 
 
